@@ -12,7 +12,6 @@ os.chdir(originalPath) #maybe allow for the user to choose save destination in t
 path = os.getcwd()
 print ("The location of your logbook willl be %s" % path)
 
-
 def createDirectory(lastDirectory, newDirectoryTitle):
     newDirectory = lastDirectory + "/" + newDirectoryTitle
     if not os.path.exists(newDirectory):
