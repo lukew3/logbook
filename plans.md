@@ -1,7 +1,5 @@
 You should make a program that compiles all of the log files into one big file that you can read all at once or several smaller ones for each month or year
 
-Make a function that will simplify the directory naming process
-
 Add functionality that will delete the file if nothing was written other than the date and time
     Maybe that can go in another application that cleans garbage files with no information in them
 
