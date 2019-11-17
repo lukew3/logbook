@@ -14,6 +14,30 @@ print ("The current working directory is %s" % path)
 
 
 #Too much recursion in the lines below, make a function that repeats it for you
+newDirectory = ""
+datePath = ""
+date=""
+def createDirectory(lastDirectory, newDirectoryName):
+    newDirectory = lastDirectory + "/" + newDirectoryName
+    if not os.path.exists(newDirectory):
+        os.mkdir(newDirectory)
+        print(newDirectoryName + " folder created")
+    else:
+        print(newDirectoryName + " path exists")
+
+    if newDirectoryName == date: #only happens the last time it is run
+        datePath = newDirectory
+
+
+createDirectory(originalPath, "logbook")
+year = now.strftime("%Y")
+createDirectory(newDirectory, year)
+month = now.strftime("%m")
+createDirectory(newDirectory, month)
+date = now.strftime("%d")
+createDirectory(newDirectory, date)
+
+"""
 logPath = originalPath+"/logbook"
 
 if not os.path.exists(logPath):
@@ -48,7 +72,7 @@ if not os.path.exists(datePath):
     print(date + " folder created")
 else:
     print(date + " path exists")
-
+"""
 
 #Makes text file
 #determines what to call the text file depending on the date and how many files have been created on that date
