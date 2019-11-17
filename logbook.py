@@ -10,69 +10,24 @@ print("date and time =", dt_string)
 originalPath = "/home/luke/Documents"
 os.chdir(originalPath) #maybe allow for the user to choose save destination in the future
 path = os.getcwd()
-print ("The current working directory is %s" % path)
+print ("The location of your logbook willl be %s" % path)
 
 
-#Too much recursion in the lines below, make a function that repeats it for you
-newDirectory = ""
-datePath = ""
-date=""
-def createDirectory(lastDirectory, newDirectoryName):
-    newDirectory = lastDirectory + "/" + newDirectoryName
+def createDirectory(lastDirectory, newDirectoryTitle):
+    newDirectory = lastDirectory + "/" + newDirectoryTitle
     if not os.path.exists(newDirectory):
         os.mkdir(newDirectory)
-        print(newDirectoryName + " folder created")
+        print(newDirectoryTitle + " folder created")
     else:
-        print(newDirectoryName + " path exists")
+        print(newDirectoryTitle + " path exists")
 
-    if newDirectoryName == date: #only happens the last time it is run
-        datePath = newDirectory
+    return newDirectory
 
-
-createDirectory(originalPath, "logbook")
-year = now.strftime("%Y")
-createDirectory(newDirectory, year)
-month = now.strftime("%m")
-createDirectory(newDirectory, month)
-date = now.strftime("%d")
-createDirectory(newDirectory, date)
-
-"""
-logPath = originalPath+"/logbook"
-
-if not os.path.exists(logPath):
-    os.mkdir(logPath)
-    print("logbook created")
-else:
-    print("logbook path exists")
-
-year = now.strftime("%Y")
-yearPath = logPath + "/" + year #makes the yearPath string equal to the logpath plus the year
-
-if not os.path.exists(yearPath):
-    os.mkdir(yearPath)
-    print(year + " folder created")
-else:
-    print(year + " path exists")
-
-month = now.strftime("%m")
-monthPath = yearPath + "/" + month
-
-if not os.path.exists(monthPath):
-    os.mkdir(monthPath)
-    print(month + " folder created")
-else:
-    print(month + " path exists")
-
-date = now.strftime("%d")
-datePath = monthPath + "/" + date
-
-if not os.path.exists(datePath):
-    os.mkdir(datePath)
-    print(date + " folder created")
-else:
-    print(date + " path exists")
-"""
+#creates all directorys by calling a function, returning the path it created and then calling another function with that functions return as parameter
+logPath = createDirectory(originalPath, "logbook")
+yearPath = createDirectory(logPath, now.strftime("%Y"))
+monthPath = createDirectory(yearPath, now.strftime("%m"))
+datePath = createDirectory(monthPath, now.strftime("%d"))
 
 #Makes text file
 #determines what to call the text file depending on the date and how many files have been created on that date
