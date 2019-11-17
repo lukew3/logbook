@@ -1,5 +1,3 @@
-#You should make a program that compiles all of the log files into one big file that you can read all at once or several smaller ones for each month or year
-
 # import the os module
 import os #makes directory modification work
 from datetime import datetime #gets date and time
@@ -10,10 +8,7 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string)
 
 originalPath = "/home/luke/Documents"
-os.chdir(originalPath) #eventually you should make this part change
-#the directory to a patht that the user chooses, after that path has been chosen
-#the path will be stored in a text file beside the logbook.py program which
-#will tell the prgram where to put the log files at.
+os.chdir(originalPath) #maybe allow for the user to choose save destination in the future
 path = os.getcwd()
 print ("The current working directory is %s" % path)
 
@@ -56,6 +51,7 @@ else:
 
 
 #Makes text file
+#determines what to call the text file depending on the date and how many files have been created on that date
 logNumOfTheDay = 1
 datePartOfLogname = now.strftime("%m-%d-%Y")
 logname = str(logNumOfTheDay) + "_" + datePartOfLogname
@@ -64,7 +60,6 @@ while (os.path.exists(finalLogPath)):
     logNumOfTheDay = logNumOfTheDay + 1
     logname = str(logNumOfTheDay) + "_" + datePartOfLogname
     finalLogPath = datePath + "/" + logname
-print(logname)
 
 finalLogPath = datePath + "/" + logname
 f = open(finalLogPath,"w+")
@@ -72,5 +67,5 @@ f = open(finalLogPath,"w+")
 #writes date and time as first line of txt file
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 f.write(dt_string)
-
+print("File saved as " + logname)
 webbrowser.open(finalLogPath) #opens txt file in text editor
