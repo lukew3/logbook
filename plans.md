@@ -6,6 +6,7 @@ Eventually you should make this part change the directory to a path that the use
 One program will be ran the first time it is used in order to set up directory and alias
 
 Sync logs to MEGA with another program
+  Add multi-device support so that you can send logs from different devices to the same MEGA
 
 Simplify code in the combineLogs program
 
