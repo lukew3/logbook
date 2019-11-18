@@ -4,10 +4,12 @@ import os
 originalPath = r"/home/luke/Documents/logbook"
 saveLocation = r"/home/luke/Documents"
 outputFileLocation = "/home/luke/Documents" + "/output.txt"
-open(outputFileLocation, 'w').close()
-os.chdir(originalPath)
+if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
+    os.remove(outputFileLocation)
+else:
+    open(outputFileLocation, 'a').close()
+    print("Output.txt created")
 
-#print(originalPath)
 
 #This entire section is way too complex. It's way too hard to code and will be even harder to debug
 
