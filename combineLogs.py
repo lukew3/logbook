@@ -1,14 +1,15 @@
 # the goal of this program is to combine all logs into one log file
 i = 0
-
+j = 0
+k = 0
+d = 0
 import os
 import glob
 
-originalPath = "/home/luke/Documents/logbook/2019/11/16"
+originalPath = r"/home/luke/Documents/logbook"
 os.chdir(originalPath)
 #print(originalPath)
 
-spath = r"/home/luke/Documents/logbook/2019/11/16"
 
 """for roots, dirs, files in os.walk(spath):
     for dir in dirs:
@@ -16,7 +17,7 @@ spath = r"/home/luke/Documents/logbook/2019/11/16"
     for file in files:
         print("File = %s" % file)
 """
-yearFolders = os.listdir(spath)
+yearFolders = os.listdir(originalPath)
 print(yearFolders)
 #os.chdir()
 
@@ -25,9 +26,17 @@ print(yearFolders)
 yearFolders.sort()
 print(yearFolders)
 
-"""
+
 while i <= len(yearFolders):
+    yearFolderPath = originalPath + "/" + yearFolders[i]
+    monthFolders = os.listdir(yearFolderPath)
+    monthFolders.sort()
+    print(monthFolders)
     while j <= len(monthFolders):
+        monthFolderPath = yearFolderPath + "/" + monthFolders[i]
+        dateFolders = os.listdir(monthFolderPath)
+        dateFolders.sort()
+        print(dateFolders)
         while k <= len(dateFolders):
             while d <= len(entries):
                 sdf
@@ -35,7 +44,8 @@ while i <= len(yearFolders):
             k = k + 1
         j = j + 1
     i = i + 1
-"""
+
+#while the count is less than number of year folders, enter year folder #n, then add one to count
 
 #start from the logbook folder
     #open year folder with lowest number
