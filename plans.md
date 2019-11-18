@@ -11,3 +11,7 @@ Figure out how to launch the program from the desktop or maybe just one short co
 One program will be ran the first time it is used in order to set up directory and alias
 
 Sync logs to MEGA with another program
+
+Simplify code in the combineLogs program
+
+Make concatenated logbook look better and more organized
