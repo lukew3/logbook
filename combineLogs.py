@@ -11,35 +11,33 @@ os.chdir(originalPath)
 #print(originalPath)
 
 
-"""for roots, dirs, files in os.walk(spath):
-    for dir in dirs:
-        print("Dir = %s" % dir)
-    for file in files:
-        print("File = %s" % file)
-"""
 yearFolders = os.listdir(originalPath)
-print(yearFolders)
-#os.chdir()
-
-
+#print(yearFolders)
 #Sort in Ascending numeric order
 yearFolders.sort()
-print(yearFolders)
-
-
-while i <= len(yearFolders):
+#print(yearFolders)
+while i < len(yearFolders):
+    print("Entering folder: " + yearFolders[i])
     yearFolderPath = originalPath + "/" + yearFolders[i]
     monthFolders = os.listdir(yearFolderPath)
     monthFolders.sort()
-    print(monthFolders)
-    while j <= len(monthFolders):
-        monthFolderPath = yearFolderPath + "/" + monthFolders[i]
+    #print(monthFolders)
+    while j < len(monthFolders):
+        print("Entering folder: " + monthFolders[j])
+        monthFolderPath = yearFolderPath + "/" + monthFolders[j]
         dateFolders = os.listdir(monthFolderPath)
         dateFolders.sort()
-        print(dateFolders)
-        while k <= len(dateFolders):
-            while d <= len(entries):
-                sdf
+        #print(dateFolders)
+        while k < len(dateFolders):
+            print("Entering folder: " + dateFolders[k])
+            dateFolderPath = monthFolderPath + "/" + dateFolders[k]
+            entries = os.listdir(dateFolderPath)
+            entries.sort()
+            print(entries)
+            while d < len(entries):
+                print("Entering file: " + entries[d])
+                entryPath = dateFolderPath + "/" + entries[d]
+                #open entry, copy data and save to big text file
                 d = d + 1
             k = k + 1
         j = j + 1
