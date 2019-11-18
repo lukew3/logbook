@@ -30,14 +30,10 @@ datePath = createDirectory(monthPath, now.strftime("%d"))
 
 #Makes text file
 #determines what to call the text file depending on the date and how many files have been created on that date
-logNumOfTheDay = 1
 datePartOfLogname = now.strftime("%m-%d-%Y")
-logname = str(logNumOfTheDay) + "_" + datePartOfLogname
+timePartOfLogname = now.strftime("%H:%M:%S")
+logname = datePartOfLogname + "_" + timePartOfLogname
 finalLogPath = datePath + "/" + logname
-while (os.path.exists(finalLogPath)):
-    logNumOfTheDay = logNumOfTheDay + 1
-    logname = str(logNumOfTheDay) + "_" + datePartOfLogname
-    finalLogPath = datePath + "/" + logname
 
 finalLogPath = datePath + "/" + logname
 f = open(finalLogPath,"w+")
