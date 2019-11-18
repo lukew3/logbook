@@ -1,28 +1,41 @@
 # the goal of this program is to combine all logs into one log file
+i = 0
 
 import os
 import glob
 
-originalPath = "/home/luke/Documents/logbook"
+originalPath = "/home/luke/Documents/logbook/2019/11/16"
 os.chdir(originalPath)
 #print(originalPath)
 
-#for file in glob.glob("*.txt"):
-#    print(file)
+spath = r"/home/luke/Documents/logbook/2019/11/16"
 
-spath = r"/home/luke/Documents/logbook"
-#os.walk is the way to go, I just don't know how to use it
-#for root, dirs, files in os.walk(originalPath):
-#    for f in files:
-#        fullpath = os.path.join(root, f)
-#        if os.path.splitext(fullpath)[1] == '.txt':
-#            print fullpath
-
-for roots, dirs, files in os.walk(spath):
+"""for roots, dirs, files in os.walk(spath):
     for dir in dirs:
         print("Dir = %s" % dir)
     for file in files:
         print("File = %s" % file)
+"""
+yearFolders = os.listdir(spath)
+print(yearFolders)
+#os.chdir()
+
+
+#Sort in Ascending numeric order
+yearFolders.sort()
+print(yearFolders)
+
+"""
+while i <= len(yearFolders):
+    while j <= len(monthFolders):
+        while k <= len(dateFolders):
+            while d <= len(entries):
+                sdf
+                d = d + 1
+            k = k + 1
+        j = j + 1
+    i = i + 1
+"""
 
 #start from the logbook folder
     #open year folder with lowest number
