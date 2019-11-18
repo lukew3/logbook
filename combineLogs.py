@@ -1,42 +1,54 @@
 # the goal of this program is to combine all logs into one log file
-i = 0
-j = 0
-k = 0
-d = 0
 import os
-import glob
 
 originalPath = r"/home/luke/Documents/logbook"
+saveLocation = r"/home/luke/Documents"
+outputFileLocation = "/home/luke/Documents" + "/output.txt"
+#saveFile = open('output.txt', 'w+')
+#saveFile.close()
 os.chdir(originalPath)
+
 #print(originalPath)
 
 
+#This entire section is way too complex. It's way too hard to code and will be even harder to debug
 yearFolders = os.listdir(originalPath)
 #print(yearFolders)
 #Sort in Ascending numeric order
 yearFolders.sort()
 #print(yearFolders)
+i = 0
 while i < len(yearFolders):
     print("Entering folder: " + yearFolders[i])
     yearFolderPath = originalPath + "/" + yearFolders[i]
     monthFolders = os.listdir(yearFolderPath)
     monthFolders.sort()
     #print(monthFolders)
+    j = 0
     while j < len(monthFolders):
         print("Entering folder: " + monthFolders[j])
         monthFolderPath = yearFolderPath + "/" + monthFolders[j]
         dateFolders = os.listdir(monthFolderPath)
         dateFolders.sort()
         #print(dateFolders)
+        k = 0
         while k < len(dateFolders):
             print("Entering folder: " + dateFolders[k])
             dateFolderPath = monthFolderPath + "/" + dateFolders[k]
             entries = os.listdir(dateFolderPath)
             entries.sort()
-            print(entries)
+            #print(entries)
+            d = 0
             while d < len(entries):
                 print("Entering file: " + entries[d])
                 entryPath = dateFolderPath + "/" + entries[d]
+
+                with open(entryPath) as f:
+                    lines = f.readlines()
+                    lines = [l for l in lines]
+                    print(lines)
+                    with open(outputFileLocation, "w") as f1:
+                        f1.writelines(lines)
                 #open entry, copy data and save to big text file
                 d = d + 1
             k = k + 1
