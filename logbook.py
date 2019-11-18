@@ -7,7 +7,7 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string)
 
-beginningPath = r"/" #os.getcwd()
+#beginningPath = r"/" #os.getcwd()
 originalPath = "/home/luke/Documents"
 os.chdir(originalPath) #maybe allow for the user to choose save destination in the future
 path = os.getcwd()
@@ -46,5 +46,5 @@ print("File saved as " + logname)
 webbrowser.open(finalLogPath) #opens txt file in text editor
 
 #changes the terminal's directory back to the root folder
-os.chdir(beginningPath)
-os.system("/bin/bash")
+#os.chdir(beginningPath)
+#os.system("/bin/bash")
