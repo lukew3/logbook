@@ -13,7 +13,7 @@ Once you set this up, you should be able to run the program through the terminal
 To set up a custom command for running logbook.py from your home directory you have to edit the bash_aliases file. To do this, run `vi ~/.bash_aliases` in your terminal. This will probably show you a warning page. This is not an issue though, press enter to edit the file. Once you are in the editor you must write the alias command to allow you to type in logbook anytime you want to write a log. Type this in the first line: `alias logbook="cd pathToFolderThatContainsLogbook.py; python logbook.py"`, and place the directions to the folder that contains logbook.py where the spaceholder is. Once you do this, type `:wq` to save and exit. If all is successful, you should be able to create a new log entry by simply typing `logbook` into terminal whenever you want.
 
 ## Built with
-* python
+* Python
 
 ## Author
 
