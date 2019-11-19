@@ -8,7 +8,7 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string)
 
 #beginningPath = r"/" #os.getcwd()
-originalPath = "/home/luke/Documents"
+originalPath = r"/home/luke/Documents"
 os.chdir(originalPath) #maybe allow for the user to choose save destination in the future
 path = os.getcwd()
 print ("The location of your logbook willl be %s" % path)
