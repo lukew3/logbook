@@ -1,3 +1,4 @@
+#Plans for future updates
 Add functionality that will delete the file if nothing was written other than the date and time
     Maybe that can go in another application that cleans garbage files with no information in them
 
