@@ -10,7 +10,7 @@ As of right now, the only way to change the folder where the logs are stored is 
 Once you set this up, you should be able to run the program through the terminal by running `python logbook.py` while in the folder that the file is in.
 
 ### Setting up alias
-To set up a custom command for running logbook.py from your home directory you have to edit the bash_aliases file. To do this, run `nano .bash_aliases` in your terminal. Once you are in the editor you must write the alias command to allow you to type in logbook anytime you want to write a log. Type this in the first line: `alias logbook="cd pathToFolderThatContainsLogbook.py; python logbook.py"`, and place the directions to the folder that contains logbook.py where the spaceholder is. Once you do this, press ctrl+x, y, enter. If all is successful, you should be able to create a new log entry by simply typing `logbook` into terminal whenever you want.
+To set up a custom command for running logbook.py from your home directory you have to edit the bash_aliases file. To do this, run `nano .bash_aliases` in your terminal. Once you are in the editor you must write the alias command to allow you to type in logbook anytime you want to write a log. Type this in the first line: `alias logbook="cd <spaceholder>; python logbook.py"`, and place the directions to the folder that contains logbook.py where the spaceholder is. Once you do this, press ctrl+x, y, enter. If all is successful, you should be able to create a new log entry by simply typing `logbook` into terminal whenever you want.
 
 ## Built with
 * Python
