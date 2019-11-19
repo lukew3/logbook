@@ -8,9 +8,4 @@ One program will be ran the first time it is used in order to set up directory a
 Sync logs to MEGA with another program
   Add multi-device support so that you can send logs from different devices to the same MEGA
 
-Simplify code in the combineLogs program
-
 Make concatenated logbook look better and more organized
-
-Make a way to scrap a log entry after the text editor is already open
-  Not sure if this is possible
