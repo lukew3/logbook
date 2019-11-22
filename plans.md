@@ -11,3 +11,4 @@ Sync logs to MEGA with another program
   Add multi-device support so that you can send logs from different devices to the same MEGA
 
 Make concatenated logbook look better and more organized
+    This could go in a markdown file so that the data would be easier to read the important stuff and forget about the unimportant
