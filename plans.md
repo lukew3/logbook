@@ -1,14 +1,14 @@
 # Plans for future updates
 
-Add functionality that will delete the file if nothing was written other than the date and time
-    Maybe that can go in another application that cleans garbage files with no information in them
+* Add functionality that will delete the file if nothing was written other than the date and time
+    * Maybe that can go in another application that cleans garbage files with no information in them
 
-Eventually you should make this part change the directory to a path that the user chooses, after that path has been chosen the path will be stored in a text file beside the logbook.py program which will tell the program where to put the log files at.
+* Eventually you should make this part change the directory to a path that the user chooses, after that path has been chosen the path will be stored in a text file beside the logbook.py program which will tell the program where to put the log files at.
 
-One program will be ran the first time it is used in order to set up directory and alias
+* One program will be ran the first time it is used in order to set up directory and alias
 
-Sync logs to MEGA with another program
-  Add multi-device support so that you can send logs from different devices to the same MEGA
+* Sync logs to MEGA with another program
+    * Add multi-device support so that you can send logs from different devices to the same MEGA
 
-Make concatenated logbook look better and more organized
-    This could go in a markdown file so that the data would be easier to read the important stuff and forget about the unimportant
+* Make concatenated logbook look better and more organized
+    * This could go in a markdown file so that the data would be easier to read the important stuff and forget about the unimportant
