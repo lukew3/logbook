@@ -10,6 +10,6 @@ setup(
     license='MIT',
     packages=find_packages(),
     entry_points=dict(
-        console_scripts=['logbook=logbook.logentry'] #add combine logs when you can
+        console_scripts=['logbook=logbook.addentry'] #add combine logs when you can
     )
 )
