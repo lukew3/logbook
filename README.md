@@ -8,6 +8,8 @@ sudo add-apt-repository ppa:lukew3/logbook
 sudo apt update
 sudo apt install logbook
 ```
+
+## Alternate install method
 The python logbook was designed to be as convenient as possible. If you do it right, you should be able to simply run `logbook` into the terminal and create a log entry.
 
 ### Setting up directory
