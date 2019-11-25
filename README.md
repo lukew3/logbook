@@ -2,6 +2,8 @@
 This program enables it's users to instantly make a logbook entry from the terminal. The program instantly creates folders that correspond to the date that each entry was published. Each file is named as date_time. If you want to see all logs at once, you can do such with combineLogs.py, which will concatenate all logs into one long logbook.
 
 ## Getting Started
+Installing logbook is super simple on debian-based operating systems.
+First, add the ppa: `sudo add-apt-repository ppa:lukew3/logbook`, update: `sudo apt update` and then install: `sudo apt install logbook`
 The python logbook was designed to be as convenient as possible. If you do it right, you should be able to simply run `logbook` into the terminal and create a log entry.
 
 ### Setting up directory
