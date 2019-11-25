@@ -1,5 +1,5 @@
 logbook (1.0.0) bionic; urgency=medium
 
-  * Fixed more critical bugs
+  * First debian release
 
- -- Luke Weiler <lukew25073@gmail.com>  Mon, 25 Nov 2019 17:34:02 -0402
+ -- Luke Weiler <lukew25073@gmail.com>  Mon, 25 Nov 2019 17:47:02 -0403
