@@ -1,5 +1,5 @@
-logbook (0.1.2) bionic; urgency=medium
+logbook (0.1.1) bionic; urgency=medium
 
-  * Fixed critical bugs again, and again
+  * Fixed more critical bugs
 
- -- Luke Weiler <lukew25073@gmail.com>  Mon, 25 Nov 2019 17:09:02 -0402
+ -- Luke Weiler <lukew25073@gmail.com>  Mon, 25 Nov 2019 17:34:02 -0402
