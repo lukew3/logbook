@@ -9,7 +9,9 @@ setup(
     author_email='lukew25073@gmail.com',
     license='MIT',
     packages=find_packages(),
-    entry_points=dict(
-        console_scripts=['newlog=logbook.addentry'] #add combine logs when you can
-    )
+    entry_points={
+	   'console_scripts': [
+            'newlog=logbook.addentry', #add combine logs later
+	   ],
+    },
 )
