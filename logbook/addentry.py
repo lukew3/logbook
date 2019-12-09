@@ -42,9 +42,9 @@ f = open(finalLogPath,"w+")
 #writes date and time as first line of txt file
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 f.write(dt_string)
-print("File saved as " + logname)
-webbrowser.open(finalLogPath) #opens txt file in text editor
+print("File name is " + logname)
+#webbrowser.open(finalLogPath) #opens txt file in text editor
 
-#changes the terminal's directory back to the root folder
-#os.chdir(beginningPath)
-#os.system("/bin/bash")
+text = input("Entry here: ")
+f.write("\n" + text)
+print("File saved as " + logname)
