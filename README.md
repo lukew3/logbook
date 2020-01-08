@@ -4,7 +4,7 @@ This program enables it's users to instantly make a logbook entry from the termi
 ## Getting Started
 This app can be installed with pip3
 ```
-pip install pythonlogbook
+pip3 install pythonlogbook
 ```
 or pip
 ```
