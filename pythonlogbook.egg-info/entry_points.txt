@@ -1,3 +1,4 @@
 [console_scripts]
+combinelogs = pythonlogbook.combineLogs:main
 newlog = pythonlogbook.addentry:main
 

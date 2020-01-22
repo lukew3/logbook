@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pythonlogbook',
-    version='1.0.3',
+    version='1.1.2',
     description='A simple logbook made with python',
     url='https://github.com/lukew3/logbook',
     author='Luke Weiler',
@@ -12,6 +12,7 @@ setup(
     entry_points={
 	   'console_scripts': [
             'newlog=pythonlogbook.addentry:main', #add combine logs later
+            'combinelogs=pythonlogbook.combineLogs:main',
 	   ],
     },
 )
