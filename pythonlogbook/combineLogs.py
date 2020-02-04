@@ -64,10 +64,10 @@ def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList, cou
         if nextParamList != "none":
             makeFolderList(nextParamList)
         else-if nextParamList == "none":
-            addData()
+            addData(nextFolderList)
         counterName = counterName + 1
 
-def addData():
+def addData(entries):
     d = 0
     while d < len(entries):
         #print("Entering entry file: " + entries[d])
