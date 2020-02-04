@@ -1,7 +1,11 @@
 # the goal of this program is to combine all logs into one log file
 import os
 
-yearParameters = ["monthFolders", "yearFolderPath", "originalPath", "yearFolders", "i", "monthParameters]
+originalPath = r"/home/luke/Documents/logbook"
+saveLocation = r"/home/luke/Documents"
+outputFileLocation = "/home/luke/Documents" + "/output.txt"
+
+yearParameters = ["monthFolders", "yearFolderPath", "originalPath", "yearFolders", "i", "monthParameters"]
 monthParameters = ["dateFolders", "monthFolderPath", "yearFolderPath", "monthFolders", "j", "dateParameters"]
 dateParameters = ["entries", "dateFolderPath", "monthFolderPath", "dateFolders", "k", "none"]
 
@@ -14,11 +18,11 @@ def makeList(ogPath, prevList, counter):
 
 def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList, counterName, nextParamList):
     counterName = 0
-    while count < len(currentFolderList):
-        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
+    while counterName < len(currentFolderList):
+        nextFolderList, currentPath = makeList(lastPath, currentFolderList, counterName)
         if nextParamList != "none":
-            makeFolderList(nextParamList)
-        else-if nextParamList == "none":
+            makeFolderList(*nextParamList)
+        elif nextParamList == "none":
             addData(nextFolderList)
         counterName = counterName + 1
 
@@ -38,10 +42,6 @@ def addData(entries):
 
 def main():
 
-    originalPath = r"/home/luke/Documents/logbook"
-    saveLocation = r"/home/luke/Documents"
-    outputFileLocation = "/home/luke/Documents" + "/output.txt"
-            
     if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
         os.remove(outputFileLocation)
     else:
@@ -54,15 +54,15 @@ def main():
 #The list is then sorted so that the files that start with lower numbers are put at the front and files with higher numbers are put at the back
 #The while loop then travels up the list, starting from the bottom and does the same thing for subfolders
 #Once the date folder is entered, the files are read and written to output folder
-    
+
     yearFolders = os.listdir(originalPath)
     yearFolders.sort() #Sort in Ascending numeric order
-                  
-    makeFolderList(yearParameters)
-                  
+
+    makeFolderList(*yearParameters)
+
     print("Logs combined")
 
-
+main()
 #Sample output format
 #year
 
