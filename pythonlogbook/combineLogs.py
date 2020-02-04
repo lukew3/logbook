@@ -52,6 +52,22 @@ def main():
         i = i + 1
 
     print("Logs combined")
+
+yearParameters = ["monthFolders", "yearFolderPath", "originalPath", "yearFolders"]
+monthParameters = ["dateFolders", "monthFolderPath", "yearFolderPath", "monthFolders"]
+dateParameters = ["entries", "dateFolderPath", "monthFolderPath", "dateFolders"]
+
+def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList):
+    count = 0
+    while count < len(currentFolderList):
+        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
+        makeFolderList()
+        count = count + 1
+    
+    while i < len(yearFolders): #while the count is less than number of year folders, enter year folder #n, then add one to count
+        monthFolders, yearFolderPath = makeList(originalPath, yearFolders, i)
+        j = 0
+        while j < len(monthFolders):
 #Sample output format
 #year
 
