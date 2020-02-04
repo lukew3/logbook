@@ -53,21 +53,33 @@ def main():
 
     print("Logs combined")
 
-yearParameters = ["monthFolders", "yearFolderPath", "originalPath", "yearFolders"]
-monthParameters = ["dateFolders", "monthFolderPath", "yearFolderPath", "monthFolders"]
-dateParameters = ["entries", "dateFolderPath", "monthFolderPath", "dateFolders"]
+yearParameters = ["monthFolders", "yearFolderPath", "originalPath", "yearFolders", "i", "monthParameters]
+monthParameters = ["dateFolders", "monthFolderPath", "yearFolderPath", "monthFolders", "j", "dateParameters"]
+dateParameters = ["entries", "dateFolderPath", "monthFolderPath", "dateFolders", "k", "none"]
 
-def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList):
-    count = 0
+def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList, counterName, nextParamList):
+    counterName = 0
     while count < len(currentFolderList):
         nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
-        makeFolderList()
-        count = count + 1
-    
-    while i < len(yearFolders): #while the count is less than number of year folders, enter year folder #n, then add one to count
-        monthFolders, yearFolderPath = makeList(originalPath, yearFolders, i)
-        j = 0
-        while j < len(monthFolders):
+        if nextParamList != "none":
+            makeFolderList(nextParamList)
+        else-if nextParamList == "none":
+            addData()
+        counterName = counterName + 1
+
+def addData():
+    d = 0
+    while d < len(entries):
+        #print("Entering entry file: " + entries[d])
+        entryPath = dateFolderPath + "/" + entries[d]
+        #writes content from entry to output.txt
+        with open(entryPath) as f:
+            lines = f.readlines()
+            lines = [l for l in lines]
+            with open(outputFileLocation, "a") as f1:
+                f1.writelines(lines)
+                f1.writelines("\n")
+        d = d + 1
 #Sample output format
 #year
 
