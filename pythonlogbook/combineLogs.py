@@ -16,26 +16,25 @@ monthParameters = []
 dateParameters = []
 
 def makeList(ogPath, prevList, counter):
-        #print("Entering: " + prevList[counter])
-        #print(counter)
-        #print(prevList)
         nextPath = ogPath + "/" + prevList[counter]
         print(nextPath)
         newList = os.listdir(nextPath)
         newList.sort()
         return newList, nextPath
 
-def makeFolderList(nextFolderList, currentPath, lastPath, currentFolderList, nextParamList): #nextListName
+def makeFolderList(lastPath, currentFolderList, nextParamList): #nextListName
     count = 0
     while count < len(currentFolderList):
         nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
+        nextFolderSet = os.listdir(currentPath)
+        nextFolderSet.sort()
         if nextParamList != "none":
-            makeFolderList(*nextParamList)
+            makeFolderList(currentPath, nextFolderSet, *nextParamList)
         elif nextParamList == "none":
-            addData(nextFolderList)
+            addData(nextFolderList, currentPath)
         count = count + 1
 
-def addData(entries):
+def addData(entries, dateFolderPath):
     d = 0
     while d < len(entries):
         #print("Entering entry file: " + entries[d])
@@ -60,10 +59,9 @@ def main():
     yearFolders = os.listdir(originalPath)
     yearFolders.sort() #Sort in Ascending numeric order
 
-    dateParameters = ["entries", "dateFolderPath", "monthFolderPath", "dateFolders", "none"]
-    monthParameters = ["dateFolders", "monthFolderPath", "yearFolderPath", "monthFolders", dateParameters]
-    yearParameters = ["monthFolders", "yearFolderPath", originalPath, yearFolders, monthParameters]
-
+    dateParameters = ["none"]
+    monthParameters = [dateParameters]
+    yearParameters = [originalPath, yearFolders, monthParameters]
 
     makeFolderList(*yearParameters)
 
