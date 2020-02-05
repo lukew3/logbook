@@ -19,7 +19,6 @@ def main():
     monthPath = createDirectory(yearPath, now.strftime("%m"))
     datePath = createDirectory(monthPath, now.strftime("%d"))
 
-    #Makes text file
     #determines what to call the text file depending on the date and how many files have been created on that date
     datePartOfLogname = now.strftime("%m-%d-%Y")
     timePartOfLogname = now.strftime("%H:%M:%S")
