@@ -4,20 +4,21 @@
 #The list is then sorted so that the files that start with lower numbers are put at the front and files with higher numbers are put at the back
 #The while loop then travels up the list, starting from the bottom and does the same thing for subfolders
 #Once the date folder is entered, the files are read and written to output folder
-
 import os
 
 originalPath = r"/home/luke/Documents/logbook"
 saveLocation = r"/home/luke/Documents"
 outputFileLocation = "/home/luke/Documents" + "/output.txt"
 
-yearParameters = []
-monthParameters = []
-dateParameters = []
+def createFile():
+    if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
+        os.remove(outputFileLocation)
+    else:
+        open(outputFileLocation, 'a').close()
+        print("Output.txt created")
 
 def makeList(ogPath, prevList, counter):
         nextPath = ogPath + "/" + prevList[counter]
-        print(nextPath)
         newList = os.listdir(nextPath)
         newList.sort()
         return newList, nextPath
@@ -49,12 +50,7 @@ def addData(entries, dateFolderPath):
         d = d + 1
 
 def main():
-
-    if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
-        os.remove(outputFileLocation)
-    else:
-        open(outputFileLocation, 'a').close()
-        print("Output.txt created")
+    createFile()
 
     yearFolders = os.listdir(originalPath)
     yearFolders.sort() #Sort in Ascending numeric order
