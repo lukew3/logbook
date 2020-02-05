@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pythonlogbook',
-    version='1.2.1',
+    version='1.2.2',
     description='A simple logbook made with python',
     url='https://github.com/lukew3/logbook',
     author='Luke Weiler',
