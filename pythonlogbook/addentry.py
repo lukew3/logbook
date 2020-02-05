@@ -1,14 +1,19 @@
 # import the os module
 import os #makes directory modification work
 from datetime import datetime #gets date and time
+from tkinter import filedialog
+from tkinter import *
+
+originalPath = ""
 
 def main():
+    checkMainDirectory()
+
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     print("date and time =", dt_string)
 
     #beginningPath = r"/" #os.getcwd()
-    originalPath = r"/home/luke/Documents"
     os.chdir(originalPath) #maybe allow for the user to choose save destination in the future
     path = os.getcwd()
     print ("The location of your logbook willl be %s" % path)
@@ -53,3 +58,19 @@ def createDirectory(lastDirectory, newDirectoryTitle):
         print(newDirectoryTitle + " path exists")
 
     return newDirectory
+
+def checkMainDirectory():
+    #if mainDir.txt does not exist, open tkinter to choose saveLocation
+    # if mainDir.txt does exist, read it and store the contents as variable originalPath
+    if os.file.exists(mainDir.txt):
+        with open("mainDir.txt") as f: #read contents
+            originalPath=f.readlines()
+    else:
+        root = Tk()
+        root.withdraw()
+        desiredLocation = filedialog.askdirectory()
+        #desiredLocation = r"/home/luke/Documents"
+        with open("mainDir.txt","w") as f: #in write mode
+            f.write(desiredLocation)
+        originalPath = desiredLocation
+main()
