@@ -10,17 +10,8 @@ or pip
 ```
 pip install pythonlogbook
 ```
-You can also install this on debian-based operating systems using these commands. However, these repositories are not regularly updated and this method is not recommended.
-```
-sudo add-apt-repository ppa:lukew3/logbook
-sudo apt update
-sudo apt install logbook
-```
 ## Using the Command Line Interface
 To create a new log, run: `newlog` in your terminal. To combine logs, run: `combinelogs`. It's as easy as that!
-
-## Alternate install method
-The python logbook was designed to be as convenient as possible. If you do it right, you should be able to simply run `logbook` into the terminal and create a log entry.
 
 ### Setting up directory
 As of right now, the only way to change the folder where the logs are stored is by editing the variable originalPath so that line 11 of logbook.py says `originalPath = r"folderLocation"`.
