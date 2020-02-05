@@ -13,16 +13,6 @@ def main():
     path = os.getcwd()
     print ("The location of your logbook willl be %s" % path)
 
-    def createDirectory(lastDirectory, newDirectoryTitle):
-        newDirectory = lastDirectory + "/" + newDirectoryTitle
-        if not os.path.exists(newDirectory):
-            os.mkdir(newDirectory)
-            print(newDirectoryTitle + " folder created")
-        else:
-            print(newDirectoryTitle + " path exists")
-
-        return newDirectory
-
     #creates all directorys by calling a function, returning the path it created and then calling another function with that functions return as parameter
     logPath = createDirectory(originalPath, "logbook")
     yearPath = createDirectory(logPath, now.strftime("%Y"))
@@ -46,5 +36,22 @@ def main():
     #webbrowser.open(finalLogPath) #opens txt file in text editor
 
     text = input("Entry here: ")
-    f.write("\n" + text)
-    print("File saved as " + logname)
+
+    if text == "":
+        os.remove(finalLogPath)
+        print("Entry deleted")
+    else:
+        f.write("\n" + text)
+        print("File saved as " + logname)
+    f.close()
+
+def createDirectory(lastDirectory, newDirectoryTitle):
+    newDirectory = lastDirectory + "/" + newDirectoryTitle
+    if not os.path.exists(newDirectory):
+        os.mkdir(newDirectory)
+        print(newDirectoryTitle + " folder created")
+    else:
+        print(newDirectoryTitle + " path exists")
+
+    return newDirectory
+main()
