@@ -26,7 +26,7 @@ def makeList(ogPath, prevList, counter):
 def makeFolderList(lastPath, currentFolderList, nextParamList): #nextListName
     count = 0
     while count < len(currentFolderList):
-        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)  
+        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
         if nextParamList != "none":
             makeFolderList(currentPath, nextFolderList, *nextParamList)
         elif nextParamList == "none":
@@ -36,9 +36,7 @@ def makeFolderList(lastPath, currentFolderList, nextParamList): #nextListName
 def addData(entries, dateFolderPath):
     d = 0
     while d < len(entries):
-        #print("Entering entry file: " + entries[d])
         entryPath = dateFolderPath + "/" + entries[d]
-        #writes content from entry to output.txt
         with open(entryPath) as f:
             lines = f.readlines()
             lines = [l for l in lines]
@@ -50,9 +48,11 @@ def addData(entries, dateFolderPath):
 def main():
     createFile()
 
+    #I feel like I could put this in the makeFolderList function somehow
     yearFolders = os.listdir(originalPath)
     yearFolders.sort() #Sort in Ascending numeric order
 
+    #Not sure if putting parameters here is the best practice but it seems like the only way it will work
     dateParameters = ["none"]
     monthParameters = [dateParameters]
     yearParameters = [originalPath, yearFolders, monthParameters]
@@ -60,12 +60,7 @@ def main():
     makeFolderList(*yearParameters)
 
     print("Logs combined")
-
-main()
-
-
-#monthParameters = [dateFolders, "monthFolderPath", "yearFolderPath", monthFolders, dateParameters]
-#dateParameters = [entries, "dateFolderPath", "monthFolderPath", dateFolders, "none"]
+    
 #Sample output format
 #year
 
