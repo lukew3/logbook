@@ -26,11 +26,9 @@ def makeList(ogPath, prevList, counter):
 def makeFolderList(lastPath, currentFolderList, nextParamList): #nextListName
     count = 0
     while count < len(currentFolderList):
-        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)
-        nextFolderSet = os.listdir(currentPath)
-        nextFolderSet.sort()
+        nextFolderList, currentPath = makeList(lastPath, currentFolderList, count)  
         if nextParamList != "none":
-            makeFolderList(currentPath, nextFolderSet, *nextParamList)
+            makeFolderList(currentPath, nextFolderList, *nextParamList)
         elif nextParamList == "none":
             addData(nextFolderList, currentPath)
         count = count + 1
