@@ -23,7 +23,7 @@ def main():
     yearParameters = [originalPath, yearFolders, monthParameters]
 
     makeFolderList(*yearParameters)
-
+    removeExtraLines()
     print("Logs combined")
 
 def createFile():
@@ -54,20 +54,35 @@ def addData(entries, dateFolderPath):
     while d < len(entries):
         entryPath = dateFolderPath + "/" + entries[d]
         with open(entryPath) as f:
-            content = f.read()
-            #contentLine = f.readline()
-            #' '.join(dateLine.split())
-            #' '.join(contentLine.split())
-            #print(dateLine)
-            #print(contentLine)
-            #lines = f.readlines()
-            #lines = [l for l in lines]
+            dateLine = f.readline()
+            contentLine = f.readline()
             with open(outputFileLocation, "a") as f1:
-                #f1.writelines("\n")
-                f1.write(content)
-                #f1.write(contentLine)
-                #f1.writelines("\n")
+                f1.writelines(dateLine)
+                f1.writelines(contentLine)
+                f1.writelines("\n")
+                f1.writelines("\n")
         d = d + 1
+def removeExtraLines():
+    lastLine = 0
+    currentLine = 0
+    with open(outputFileLocation, "r") as f3:
+        lines = f3.readlines()
+    with open(outputFileLocation, "w") as f3:
+        for line in lines:
+            if line == "\n":
+                currentLine = 1
+            else:
+                currentLine = 0
+
+            if lastLine == 1 and currentLine == 1:
+                print("line removed")
+            else:
+                f3.write(line)
+
+            lastLine = currentLine
+            currentLine = 0
+
+
 main()
 #Sample output format
 #year
