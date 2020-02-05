@@ -54,13 +54,21 @@ def addData(entries, dateFolderPath):
     while d < len(entries):
         entryPath = dateFolderPath + "/" + entries[d]
         with open(entryPath) as f:
-            lines = f.readlines()
-            lines = [l for l in lines]
+            content = f.read()
+            #contentLine = f.readline()
+            #' '.join(dateLine.split())
+            #' '.join(contentLine.split())
+            #print(dateLine)
+            #print(contentLine)
+            #lines = f.readlines()
+            #lines = [l for l in lines]
             with open(outputFileLocation, "a") as f1:
-                f1.writelines(lines)
-                f1.writelines("\n")
+                #f1.writelines("\n")
+                f1.write(content)
+                #f1.write(contentLine)
+                #f1.writelines("\n")
         d = d + 1
-
+main()
 #Sample output format
 #year
 
