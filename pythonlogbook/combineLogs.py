@@ -53,21 +53,26 @@ def addData(entries, dateFolderPath):
     d = 0
     while d < len(entries):
         entryPath = dateFolderPath + "/" + entries[d]
-        with open(entryPath) as f:
-            dateLine = f.readline()
-            contentLine = f.readline()
-            with open(outputFileLocation, "a") as f1:
-                f1.writelines(dateLine)
-                f1.writelines(contentLine)
-                f1.writelines("\n")
-                f1.writelines("\n")
+        with open(entryPath) as input:
+            dateLine = input.readline()
+            contentLine = input.readline()
+            with open(outputFileLocation, "a") as output:
+                output.writelines(dateLine)
+                output.writelines(contentLine)
+                output.writelines("\n")
+                output.writelines("\n")
         d = d + 1
+
 def removeExtraLines():
     lastLine = 0
     currentLine = 0
-    with open(outputFileLocation, "r") as f3:
-        lines = f3.readlines()
-    with open(outputFileLocation, "w") as f3:
+    with open(outputFileLocation, "r") as output:
+        lines = output.readlines()
+    with open(outputFileLocation, "w") as output:
+        #deletes content of output file
+        output.seek(0)
+        output.truncate()
+
         for line in lines:
             if line == "\n":
                 currentLine = 1
@@ -77,13 +82,12 @@ def removeExtraLines():
             if lastLine == 1 and currentLine == 1:
                 print("line removed")
             else:
-                f3.write(line)
+                output.write(line)
 
             lastLine = currentLine
             currentLine = 0
+    output.close()
 
-
-main()
 #Sample output format
 #year
 
