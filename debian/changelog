@@ -1,5 +1,0 @@
-pythonlogbook (1.0.2) bionic; urgency=medium
-
-  * Possibly fixed entry_points in setup.py
-
- -- Luke Weiler <lukew25073@gmail.com>  Mon, 09 Dec 2019 16:57:02 -0406
