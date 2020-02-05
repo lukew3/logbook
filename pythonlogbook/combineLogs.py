@@ -10,6 +10,22 @@ originalPath = r"/home/luke/Documents/logbook"
 saveLocation = r"/home/luke/Documents"
 outputFileLocation = "/home/luke/Documents" + "/output.txt"
 
+def main():
+    createFile()
+
+    #I feel like I could put this in the makeFolderList function somehow
+    yearFolders = os.listdir(originalPath)
+    yearFolders.sort() #Sort in Ascending numeric order
+
+    #Not sure if putting parameters here is the best practice but it seems like the only way it will work
+    dateParameters = ["none"]
+    monthParameters = [dateParameters]
+    yearParameters = [originalPath, yearFolders, monthParameters]
+
+    makeFolderList(*yearParameters)
+
+    print("Logs combined")
+
 def createFile():
     if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
         os.remove(outputFileLocation)
@@ -45,22 +61,7 @@ def addData(entries, dateFolderPath):
                 f1.writelines("\n")
         d = d + 1
 
-def main():
-    createFile()
-
-    #I feel like I could put this in the makeFolderList function somehow
-    yearFolders = os.listdir(originalPath)
-    yearFolders.sort() #Sort in Ascending numeric order
-
-    #Not sure if putting parameters here is the best practice but it seems like the only way it will work
-    dateParameters = ["none"]
-    monthParameters = [dateParameters]
-    yearParameters = [originalPath, yearFolders, monthParameters]
-
-    makeFolderList(*yearParameters)
-
-    print("Logs combined")
-    
+main()
 #Sample output format
 #year
 
