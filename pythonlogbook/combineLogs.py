@@ -61,7 +61,6 @@ def addData(entries, dateFolderPath):
                 f1.writelines("\n")
         d = d + 1
 
-main()
 #Sample output format
 #year
 
