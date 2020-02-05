@@ -53,4 +53,3 @@ def createDirectory(lastDirectory, newDirectoryTitle):
         print(newDirectoryTitle + " path exists")
 
     return newDirectory
-main()
