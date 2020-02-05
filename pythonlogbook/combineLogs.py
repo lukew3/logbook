@@ -79,15 +79,13 @@ def removeExtraLines():
             else:
                 currentLine = 0
 
-            if lastLine == 1 and currentLine == 1:
-                print("line removed")
-            else:
+            if lastLine == 0 or currentLine == 0:
                 output.write(line)
 
             lastLine = currentLine
             currentLine = 0
     output.close()
-
+main()
 #Sample output format
 #year
 
