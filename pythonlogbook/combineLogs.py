@@ -6,6 +6,8 @@
 #Once the date folder is entered, the files are read and written to output folder
 import os
 
+from mdutils.mdutils import MdUtils
+
 originalPath = r"/home/luke/Documents/logbook"
 saveLocation = r"/home/luke/Documents"
 outputFileLocation = "/home/luke/Documents" + "/output.txt"
@@ -78,14 +80,57 @@ def removeExtraLines():
                 currentLine = 1
             else:
                 currentLine = 0
-
             if lastLine == 0 or currentLine == 0:
                 output.write(line)
 
             lastLine = currentLine
             currentLine = 0
     output.close()
-main()
+
+def makeMd():
+    main()
+    lastDate = 0;
+    lastMonth = 0;
+    lastYear = 0;
+    os.chdir(saveLocation)
+    mdOutputLocation = saveLocation + 'logbook.md'
+    if os.path.exists(mdOutputLocation): #If file output.txt exists, remove it. If it doesn't, create it
+        os.remove(mdOutputLocation)
+
+    mdFile = MdUtils(file_name='logbook',title='My Logbook')
+    with open(outputFileLocation, "r") as textDoc:
+        lines = textDoc.readlines()
+    for line in lines:
+        firstTwoDigits = line[:2]
+        if firstTwoDigits.isdigit():
+
+            date = line[:2]
+            month = line[3:5]
+            year = line[6:10]
+
+            if year != lastYear:
+                print("Year: " + year)
+                mdFile.new_header(level=1, title=year)
+                lastYear = year
+
+            if month != lastMonth:
+                print("Month: " + month)
+                mdFile.new_header(level=3, title=month)
+                lastMonth = month
+
+            if date != lastDate:
+                print("Date: " + date)
+                mdFile.new_header(level=4, title=date)
+                lastDate = date
+        if firstTwoDigits.isdigit() == False:
+            print(line)
+            mdFile.new_paragraph(line)
+    mdFile.create_md_file()
+makeMd()
+
+
+
+
 #Sample output format
 #year
 
