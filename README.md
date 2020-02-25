@@ -11,7 +11,7 @@ or pip
 pip install pythonlogbook
 ```
 ## Using the Command Line Interface
-To create a new log, run: `newlog` in your terminal. To combine logs, run: `combinelogs`. It's as easy as that!
+To create a new log, run: `newlog` in your terminal. To combine logs, run: `combinelogs`. To make a markdown file, run: `makelogmd` It's as easy as that!
 
 ### Setting up directory
 As of right now, the only way to change the folder where the logs are stored is by editing the variable originalPath so that line 11 of logbook.py says `originalPath = r"folderLocation"`.
