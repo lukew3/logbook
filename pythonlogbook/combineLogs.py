@@ -57,17 +57,18 @@ def makeMd():
 
             if month != lastMonth:
                 monthWorded = monthToWords(month)
-                mdFile.new_header(level=3, title=monthWorded)
+                mdFile.new_header(level=2, title=monthWorded)
                 lastMonth = month
 
             if date != lastDate:
-                mdFile.new_header(level=4, title=date)
+                mdFile.new_header(level=3, title=date)
                 lastDate = date
         if (firstTwoDigits.isdigit() == False) and (line != "\n"):
             entryContent = lastTime + " - " + line
-            print(entryContent)
             mdFile.new_paragraph(entryContent)
     mdFile.create_md_file()
+    print("md file created")
+    
 def createFile():
     if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
         os.remove(outputFileLocation)
