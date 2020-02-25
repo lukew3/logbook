@@ -52,18 +52,15 @@ def makeMd():
             lastTime = line[11:19]
 
             if year != lastYear:
-                print("Year: " + year)
                 mdFile.new_header(level=1, title=year)
                 lastYear = year
 
             if month != lastMonth:
                 monthWorded = monthToWords(month)
-                print("Month: " + monthWorded)
                 mdFile.new_header(level=3, title=monthWorded)
                 lastMonth = month
 
             if date != lastDate:
-                print("Date: " + date)
                 mdFile.new_header(level=4, title=date)
                 lastDate = date
         if (firstTwoDigits.isdigit() == False) and (line != "\n"):
