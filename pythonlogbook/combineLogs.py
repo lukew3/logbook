@@ -6,6 +6,8 @@
 #Once the date folder is entered, the files are read and written to output folder
 import os
 
+from mdutils.mdutils import MdUtils
+
 originalPath = r"/home/luke/Documents/logbook"
 saveLocation = r"/home/luke/Documents"
 outputFileLocation = "/home/luke/Documents" + "/output.txt"
@@ -26,6 +28,49 @@ def main():
     removeExtraLines()
     print("Logs combined")
 
+def makeMd():
+    main()
+    lastDate = 0
+    lastMonth = 0
+    lastYear = 0
+    lastTime = ""
+    os.chdir(saveLocation)
+    mdOutputLocation = saveLocation + 'logbook.md'
+    if os.path.exists(mdOutputLocation): #If file output.txt exists, remove it. If it doesn't, create it
+        os.remove(mdOutputLocation)
+
+    mdFile = MdUtils(file_name='logbook',title='My Logbook')
+    with open(outputFileLocation, "r") as textDoc:
+        lines = textDoc.readlines()
+    for line in lines:
+        firstTwoDigits = line[:2]
+        if firstTwoDigits.isdigit():
+
+            date = line[:2]
+            month = line[3:5]
+            year = line[6:10]
+            lastTime = line[11:19]
+
+            if year != lastYear:
+                print("Year: " + year)
+                mdFile.new_header(level=1, title=year)
+                lastYear = year
+
+            if month != lastMonth:
+                monthWorded = monthToWords(month)
+                print("Month: " + monthWorded)
+                mdFile.new_header(level=3, title=monthWorded)
+                lastMonth = month
+
+            if date != lastDate:
+                print("Date: " + date)
+                mdFile.new_header(level=4, title=date)
+                lastDate = date
+        if (firstTwoDigits.isdigit() == False) and (line != "\n"):
+            entryContent = lastTime + " - " + line
+            print(entryContent)
+            mdFile.new_paragraph(entryContent)
+    mdFile.create_md_file()
 def createFile():
     if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
         os.remove(outputFileLocation)
@@ -78,14 +123,42 @@ def removeExtraLines():
                 currentLine = 1
             else:
                 currentLine = 0
-
             if lastLine == 0 or currentLine == 0:
                 output.write(line)
 
             lastLine = currentLine
             currentLine = 0
     output.close()
-main()
+
+def monthToWords(number):
+    if number == "01":
+        return "January"
+    if number == "02":
+        return "February"
+    if number == "03":
+        return "March"
+    if number == "04":
+        return "April"
+    if number == "05":
+        return "May"
+    if number == "06":
+        return "June"
+    if number == "07":
+        return "July"
+    if number == "08":
+        return "August"
+    if number == "09":
+        return "September"
+    if number == "10":
+        return "October"
+    if number == '11':
+        return "November"
+    if number == "12":
+        return "December"
+makeMd()
+
+
+
 #Sample output format
 #year
 
