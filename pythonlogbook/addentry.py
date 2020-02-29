@@ -1,13 +1,13 @@
 # import the os module
 import os #makes directory modification work
 from datetime import datetime #gets date and time
-from tkinter import filedialog
-from tkinter import *
+#from tkinter import filedialog
+#from tkinter import *
 
-originalPath = ""
+originalPath = "/home/luke/Documents"
 
 def main():
-    checkMainDirectory()
+    #checkMainDirectory()
 
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -59,6 +59,7 @@ def createDirectory(lastDirectory, newDirectoryTitle):
 
     return newDirectory
 
+#not working right now. Commented call on line 10
 def checkMainDirectory():
     #if mainDir.txt does not exist, open tkinter to choose saveLocation
     # if mainDir.txt does exist, read it and store the contents as variable originalPath
