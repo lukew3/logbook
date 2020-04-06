@@ -74,4 +74,3 @@ def checkMainDirectory():
         with open("mainDir.txt","w") as f: #in write mode
             f.write(desiredLocation)
         originalPath = desiredLocation
-main()

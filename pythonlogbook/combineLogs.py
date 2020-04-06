@@ -68,7 +68,7 @@ def makeMd():
             mdFile.new_paragraph(entryContent)
     mdFile.create_md_file()
     print("md file created")
-    
+
 def createFile():
     if os.path.exists(outputFileLocation): #If file output.txt exists, remove it. If it doesn't, create it
         os.remove(outputFileLocation)
@@ -153,7 +153,6 @@ def monthToWords(number):
         return "November"
     if number == "12":
         return "December"
-makeMd()
 
 
 
